@@ -1,0 +1,14 @@
+G:\projects\atm system\atm-system\bin\Debug\net10.0\atm-system.exe
+G:\projects\atm system\atm-system\bin\Debug\net10.0\atm-system.deps.json
+G:\projects\atm system\atm-system\bin\Debug\net10.0\atm-system.runtimeconfig.json
+G:\projects\atm system\atm-system\bin\Debug\net10.0\atm-system.dll
+G:\projects\atm system\atm-system\bin\Debug\net10.0\atm-system.pdb
+G:\projects\atm system\atm-system\obj\Debug\net10.0\atm-system.GeneratedMSBuildEditorConfig.editorconfig
+G:\projects\atm system\atm-system\obj\Debug\net10.0\atm-system.AssemblyInfoInputs.cache
+G:\projects\atm system\atm-system\obj\Debug\net10.0\atm-system.AssemblyInfo.cs
+G:\projects\atm system\atm-system\obj\Debug\net10.0\atm-system.csproj.CoreCompileInputs.cache
+G:\projects\atm system\atm-system\obj\Debug\net10.0\atm-system.dll
+G:\projects\atm system\atm-system\obj\Debug\net10.0\refint\atm-system.dll
+G:\projects\atm system\atm-system\obj\Debug\net10.0\atm-system.pdb
+G:\projects\atm system\atm-system\obj\Debug\net10.0\atm-system.genruntimeconfig.cache
+G:\projects\atm system\atm-system\obj\Debug\net10.0\ref\atm-system.dll
