@@ -3,11 +3,82 @@ using System.Formats.Asn1;
 
 int passwordCard = 5555;
 double balanceAccount = 20000;
-double balanceAtm = 900000;
+double balanceAtm = 50000;
 Console.WriteLine("Please Enter Your password");
 int password = Convert.ToInt32(Console.ReadLine());
 
 
+void sound()
+{
+    Console.WriteLine("Take Your Card");
+    for (int i = 0; i <= 10; i++)
+    {
+        Console.Beep(1000, 500);
+        if (Console.KeyAvailable)
+        {
+            Console.ReadKey();
+            break;
+        }
+
+    }
+}
+
+// Menu
+void Menu()
+{
+
+    Console.WriteLine("Please Choose Your Option");
+
+    Console.WriteLine("1-:Withdraw"); //ok
+    Console.WriteLine("2-:Deposit"); //ok
+    Console.WriteLine("3-:Balance"); //ok
+    Console.WriteLine("4-:Exit"); //ok
+    string choice = Console.ReadLine();
+    // withdraw
+
+    if (choice == "1")
+    {
+        withdrawAtm();
+
+    }
+
+
+    //deposit
+    if (choice == "2")
+    {
+        depositAtm();
+
+    }
+
+    //balance
+    if (choice == "3")
+    {
+        balance();
+
+    }
+    //exit
+    if (choice == "4")
+    {
+        sound();
+        Console.WriteLine("Thank You For Use Our Service");
+    }
+}
+
+void anotherOperation()
+{
+    Console.WriteLine("Do You Want To Another Operation?  Yes Or No");
+    string valid = Console.ReadLine();
+    valid = valid.ToUpper();
+    if (valid == "YES")
+    {
+        Menu();
+    }
+    else if (valid == "NO")
+    {
+        sound();
+        Console.WriteLine("Thank You For Use Our Service");
+    }
+}
 // withdraw function
 void withdrawAtm()
 {
@@ -15,16 +86,37 @@ void withdrawAtm()
     double withdraw = Convert.ToDouble(Console.ReadLine());
     if (withdraw < balanceAtm && withdraw < balanceAccount)
     {
-        Console.WriteLine("Take your Money And Take Your Card");
         balanceAtm -= withdraw;
         balanceAccount -= withdraw;
-        Console.WriteLine("Your Balance Is " + balanceAccount);
+
+        sound();
+        //sound
+        Thread.Sleep(2000);
+
+        Console.WriteLine("Take Your Money");
+        for (int i = 0; i <= 10; i++)
+        {
+            Console.Beep(1000, 500);
+            if (Console.KeyAvailable)
+            {
+                Console.ReadKey();
+                break;
+            }
+        }
+        Console.WriteLine("Thank You For Use Our Service");
+        //sound
+    }
+    else if (withdraw > balanceAtm)
+    {
+        Console.WriteLine("The Atm Has No Enough Money");
+        anotherOperation();
     }
     else
     {
-        Console.WriteLine("Your Money Not Enough");
-
+        Console.WriteLine("Your Balance Account Has Not Enough Money");
+        anotherOperation();
     }
+
     return;
 }
 
@@ -36,6 +128,7 @@ void depositAtm()
     balanceAtm += depositUser;
     balanceAccount += depositUser;
     Console.WriteLine("Your Balance Is " + balanceAccount);
+    anotherOperation();
     return;
 }
 
@@ -45,87 +138,14 @@ void depositAtm()
 void balance()
 {
     Console.WriteLine("Your Balance Is " + balanceAccount);
-    Console.WriteLine("Do You Want To Another Operation?  Yes Or No");
-    string choice = Console.ReadLine();
-    if (choice == "Yes")
-    {
-        Console.WriteLine("Withdraw"); //ok
-        Console.WriteLine("Deposit"); //procssing
-        Console.WriteLine("Balance"); //ok
-        Console.WriteLine("Exit"); // procssing
-        if (choice == "Withdraw")
-        {
-            withdrawAtm();
-            Console.ReadKey();
-            Console.WriteLine("Thank You For Use Our Service");
-        }
-
-        //deposit
-        if (choice == "Deposit")
-        {
-            depositAtm();
-            Console.ReadKey();
-            Console.WriteLine("Thank You For Use Our Service");
-        }
-
-        //exit 
-        if (choice == "Exit")
-        {
-            Console.WriteLine("Take Your Card");
-            Console.ReadKey();
-            Console.WriteLine("Thank You For Use Our Service");
-        }
-    }
-    else if (choice == "No")
-    {
-        Console.ReadKey();
-        Console.WriteLine("Thank You For Use Our Service");
-    }
+    anotherOperation();
     return;
 }
 
 //check password
 if (password == passwordCard)
 {
-    Console.WriteLine("Please Choose Your Option");
-
-    Console.WriteLine("Withdraw"); //ok
-    Console.WriteLine("Deposit"); //procssing
-    Console.WriteLine("Balance"); //ok
-    Console.WriteLine("Exit"); // procssing
-    string choice = Console.ReadLine();
-    // withdraw
-
-    if (choice == "Withdraw")
-    {
-        withdrawAtm();
-        Console.ReadKey();
-        Console.WriteLine("Thank You For Use Our Service");
-    }
-
-
-    //deposit
-    if (choice == "Deposit")
-    {
-        depositAtm();
-        Console.ReadKey();
-        Console.WriteLine("Thank You For Use Our Service");
-    }
-
-    //balance
-    if (choice == "Balance")
-    {
-        balance();
-        Console.ReadKey();
-        Console.WriteLine("Thank You For Use Our Service");
-    }
-    //exit
-    if (choice == "Exit")
-    {
-        Console.WriteLine("Take Your Card");
-        Console.ReadKey();
-        Console.WriteLine("Thank You For Use Our Service");
-    }
+    Menu();
 }
 else
 {
@@ -136,49 +156,12 @@ else
         password = Convert.ToInt32(Console.ReadLine());
         if (password == passwordCard)
         {
-            Console.WriteLine("Please Choose Your Option");
-            Console.WriteLine("Withdraw"); //ok
-            Console.WriteLine("Deposit"); //procssing
-            Console.WriteLine("Balance"); //ok
-            Console.WriteLine("Exit"); // procssing
-            string choice = Console.ReadLine();
-            // withdraw
-            if (choice == "Withdraw")
-            {
-                withdrawAtm();
-                Console.ReadKey();
-                Console.WriteLine("Thank You For Use Our Service");
-                return;
-            }
-
-            //deposit   
-            if (choice == "Deposit")
-            {
-                depositAtm();
-                Console.ReadKey();
-                Console.WriteLine("Thank You For Use Our Service");
-                return;
-            }
-
-            //balance
-            if (choice == "Balance")
-            {
-                balance();
-                Console.ReadKey();
-                Console.WriteLine("Thank You For Use Our Service");
-                return;
-            }
-            //exit 
-            if (choice == "Exit")
-            {
-                Console.WriteLine("Take Your Card");
-                Console.ReadKey();
-                Console.WriteLine("Thank You For Use Our Service");
-                return;
-            }
+            Menu();
+            return;
         }
     }
     Console.ReadKey();
+    sound();
     Console.WriteLine("Your Card Has Been Blocked Please Contact Your Bank");
 }
 

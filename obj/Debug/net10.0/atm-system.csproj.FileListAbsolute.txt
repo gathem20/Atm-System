@@ -12,3 +12,4 @@ G:\projects\atm system\atm-system\obj\Debug\net10.0\refint\atm-system.dll
 G:\projects\atm system\atm-system\obj\Debug\net10.0\atm-system.pdb
 G:\projects\atm system\atm-system\obj\Debug\net10.0\atm-system.genruntimeconfig.cache
 G:\projects\atm system\atm-system\obj\Debug\net10.0\ref\atm-system.dll
+G:\projects\atm system\atm-system\obj\Debug\net10.0\atm-system.sourcelink.json
